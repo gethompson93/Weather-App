@@ -1,0 +1,45 @@
+.col-3 {
+  display: block;
+}
+
+.container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+button {
+  background-color: aliceblue;
+  font-size: 20px;
+  text-decoration: none;
+  border-radius: 12px;
+}
+
+body {
+  margin: 0px;
+  font-family: "Rajdhani", sans-serif;
+  border: solid;
+  border-radius: 12px;
+  padding: 30px;
+  background-color: #f4f7fa;
+  margin: 90px;
+}
+
+.list {
+  list-style-type: none;
+}
+
+.fa-sun {
+  font-size: 60px;
+}
+
+.fa-snowflake {
+  font-size: 60px;
+}
+
+.fa-cloud-sun-rain {
+  font-size: 80px;
+}
+
+.col {
+  font-size: 40px;
+}
