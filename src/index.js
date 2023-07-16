@@ -33,17 +33,26 @@ let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", search);
 searchForm.addEventListener("click", search);
 
-/// geo location ///
-/// when a user searches for a city (example: New York), ///
-//// it should display the name of the city on the result page and the current temperature of the city.///
-
 function getPosition(position) {
   let apiKey = "c84a9ba5e87b5fddad29cc4b8603e9ad";
   let units = "metric";
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then((response) => showPosition(response.data));
+}
+
+function displayWeatherCondition(response) {
+  document.querySelector("#cityName").innerHTML = response.data.name;
+  document.querySelector("#currentTemp").innerHTML = Math.round(
+    response.data.main.temp
+  );
+}
+
+function searchCity(city) {
+  let apiKey = "c84a9ba5e87b5fddad29cc4b8603e9ad";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=c84a9ba5e87b5fddad29cc4b8603e9ad&units=metric`;
+  axios.get(apiUrl).then(displayWeatherCondition);
 }
 
 function showPosition(data) {
@@ -64,3 +73,5 @@ let button = document.querySelector("#locationButton");
 button.addEventListener("click", () => {
   navigator.geolocation.getCurrentPosition(getPosition);
 });
+
+searchCity("Melbourne");
