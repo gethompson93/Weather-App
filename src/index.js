@@ -38,7 +38,7 @@ function getPosition(position) {
   let units = "metric";
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then((response) => showPosition(response.data));
 }
 
